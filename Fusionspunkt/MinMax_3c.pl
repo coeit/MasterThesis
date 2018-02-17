@@ -153,46 +153,6 @@ foreach(@lines){
 	} else {
 		print NEGATIVE_OUT $Acc."\n";
 	}
-	
-=pod
-	$THsw = 0;
-	$TH2 = (max(@values)-min(@values))*(1/2);
-	print OUT "TH ".$TH."::sTH ".$sTH."::TH2 ".$TH2."::zTH ".$zTH."";
-	if(join("",@absArr) =~ /\*/){
-		foreach(sort { xTval($b) <=> xTval($a) }@absArr){
-			if(xTval($_) > $TH2 && $THsw){
-				$THsw = 0;
-				last;
-			}
-			elsif(xTval($_) >= $TH && $_ =~ /\*/){
-				$THsw = 1;
-			}
-		}
-	}
-
-	
-	@Mindex = ();
-	@newVal = ();
-	if($THsw){
-		print POSITIVE_OUT $Acc."::";
-		for(my $i = min(@PosArr); $i < $PosArr[-1]; $i++){
-			push (@newVal,$values[$i]);
-		}
-		$min = min(@newVal);
-		print OUT "::POS ".min(@PosArr)." - ".$PosArr[-1]."\n";
-		for(my $i = min(@PosArr); $i < $PosArr[-1]; $i++){
-			if($values[$i] == $min){
-				push (@Mindex,$i);
-			}
-		}
-		#print OUT "::".join(", ",@Mindex)."\n";
-		#print OUT "::POS - ".(int((min(@Mindex)+max(@Mindex))/2))."\n";
-		
-		$CutPos = int((min(@Mindex)+max(@Mindex))/2);
-		print POSITIVE_OUT $CutPos."\n";
-		
-	}
-=cut
 	@maxDiffarr = ();
 	@signChIndex = ();
 	@signSplit = ();
