@@ -14,13 +14,6 @@ public class Thread_organizer {
         System.err.println("Sequence Length Hashing ... DONE!");
 
         ArrayList<ArrayList<String>> archiveCut = readArchiveList2(args[1].trim(), Integer.parseInt(args[2]));
-        /*for (int i = 0; i < archiveCut.size(); i++){
-            //System.out.print(i + ":: ");
-            for (String line : archiveCut.get(i)){
-                System.out.print(line + "\t");
-            }
-            System.out.println();
-        }*/
         int t = 0;
         for (ArrayList<String> archive : archiveCut) {
             Thread thread = new Thread(new FuDet(args[0], archive, acc2len, t));
